@@ -11,6 +11,4 @@ public class UserDetails : IdentityUser
     public string LastName { get; set; }
     [StringLength(200)]
     public string Address { get; set; }
-    [RegularExpression(@"^\+?[1-9]\d{1,14}$", ErrorMessage = "Invalid phone number format")]
-    public string PhoneNumber { get; set; }
 }

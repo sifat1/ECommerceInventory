@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ECommerceInventory.Controllers;
 
-[Route("api/[controller]")]
+[Route("api/")]
 [ApiController]
 public class ProductController : ControllerBase
 {

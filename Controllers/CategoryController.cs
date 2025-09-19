@@ -2,6 +2,9 @@ using ECommerceInventory.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
+[Route("api/")]
+[ApiController]
 public class CategoryController : ControllerBase
 {
     private readonly CategoryService _categoryService;
