@@ -1,6 +1,6 @@
 namespace ECommerceInventory.Models.Dtos;
 
-public class ProductDto
+public class ProductListDto
 {
     public int categoryId;
     public  int? minPrice = 10;
