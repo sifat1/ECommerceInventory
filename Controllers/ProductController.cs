@@ -1,4 +1,3 @@
-using System;
 using ECommerceInventory.Models;
 using ECommerceInventory.Models.Dtos;
 using Microsoft.AspNetCore.Mvc;
@@ -18,7 +17,7 @@ public class ProductController : ControllerBase
     
     [HttpPost]
     [Route("products")]
-    public async Task<IActionResult> AddProduct(Product product)
+    public IActionResult AddProduct(Product product)
     {
         try
         {
@@ -36,7 +35,7 @@ public class ProductController : ControllerBase
     [Route("products")]
     public async Task<List<Product>> GetAllProducts([FromQuery] ProductListDto productlistDto)
     {
-        List<Product> products = _productService.GetAllProducts(productlistDto).ToList();
+        List<Product> products = await _productService.GetAllProducts(productlistDto).ToListAsync();
         return products ?? new List<Product>();
     }
 
@@ -50,7 +49,7 @@ public class ProductController : ControllerBase
 
     [HttpPut]
     [Route("products")]
-    public async Task<IActionResult> UpdateProduct(Product product)
+    public IActionResult UpdateProduct(Product product)
     {
         try
         {
@@ -65,7 +64,7 @@ public class ProductController : ControllerBase
 
     [HttpDelete]
     [Route("products/{id}")]
-    public async Task<IActionResult> DeleteProduct(int id)
+    public IActionResult DeleteProduct(int id)
     {
         try
         {
