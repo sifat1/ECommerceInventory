@@ -22,7 +22,7 @@ public class ProductController : ControllerBase
         try
         {
             _productService.AddProduct(product);
-            return Ok(new { message = "Product added successfully" });
+            return CreatedAtAction(nameof(GetProductsById), new { product.Id }, product);
         }
         catch (Exception ex)
         {
@@ -41,19 +41,20 @@ public class ProductController : ControllerBase
 
     [HttpGet]
     [Route("products/{id}")]
-    public async Task<Product> GetProductsById(int id)
+    public async Task<ActionResult<Product>> GetProductsById(int id)
     {
         Product product = await _productService.GetProductsById(id).FirstOrDefaultAsync();
-        return product ?? null;
+        if (product != null) NotFound(new { message = "Product not found" });
+        return Ok(product);
     }
 
     [HttpPut]
-    [Route("products")]
-    public IActionResult UpdateProduct(Product product)
+    [Route("products/{id}")]
+    public IActionResult UpdateProduct(int id, ProductDto product)
     {
         try
         {
-            _productService.UpdateProduct(product);
+            _productService.UpdateProduct(id,product);
             return Ok(new { message = "Product updated successfully" });
         }
         catch (Exception ex)

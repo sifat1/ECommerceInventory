@@ -1,4 +1,6 @@
 using ECommerceInventory.Models;
+using ECommerceInventory.Models.Dtos;
+using Microsoft.EntityFrameworkCore;
 
 public class CategoryService
 {
@@ -9,9 +11,18 @@ public class CategoryService
         _context = context;
     }
 
-    public IQueryable<Category> GetAllCategories()
+    public IQueryable<CategoryWithCountDto> GetCategoryCounts()
     {
-        return _context.Categories;
+        return from category in _context.Categories
+            join product in _context.Products
+                on category.Id equals product.CategoryId
+                into categoryGroup
+            select new CategoryWithCountDto
+            {
+                CategoryId = category.Id,
+                CategoryName = category.Name,
+                ProductCount = categoryGroup.Count()
+            };
     }
 
     public IQueryable<Category> GetCategoryById(int id)
@@ -28,13 +39,21 @@ public class CategoryService
         _context.Categories.Update(category);
         _context.SaveChanges();
     }
-    public void DeleteCategory(int categoryId)
+    public async Task<bool> DeleteCategory(int categoryId)
     {
-        var category = _context.Categories.Find(categoryId);
-        if (category != null)
+        var category = await _context.Categories
+            .Include(c => c.products)
+            .FirstOrDefaultAsync(c => c.Id == categoryId);
+
+        if (category == null) return false;
+
+        if (category.products != null && category.products.Any())
         {
-            _context.Categories.Remove(category);
-            _context.SaveChanges();
+            throw new InvalidOperationException("Cannot delete category with linked products.");
         }
+
+        _context.Categories.Remove(category);
+        await _context.SaveChangesAsync();
+        return true;
     }
 }
