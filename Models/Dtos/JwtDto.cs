@@ -4,6 +4,7 @@ namespace ECommerceInventory.Models.Dtos;
 
 public class JwtDto
 {
-    public string token;
-    public DateTime expiration;
+    public string token { get; set; }
+    public string refreshToken { get; set; }
+    public DateTime expiration { get; set; }
 }
