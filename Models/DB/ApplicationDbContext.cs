@@ -23,9 +23,9 @@ public class ApplicationDbContext : IdentityDbContext<UserDetails>
             .OnDelete(DeleteBehavior.Cascade);
 
         modelBuilder.Entity<Category>()
-            .HasIndex(c => c.Id)
+            .HasIndex(c => c.Name)
             .IsUnique();
-
+        
         modelBuilder.Entity<Product>()
             .HasIndex(p => p.Id)
             .IsUnique();

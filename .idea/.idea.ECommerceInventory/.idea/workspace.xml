@@ -8,11 +8,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aee049f0-d8f1-4a2d-ad56-e2158c70d8d6" name="Changes" comment="">
+    <list default="true" id="aee049f0-d8f1-4a2d-ad56-e2158c70d8d6" name="Changes" comment="Merge branch 'add-elastic' into add-auth&#10;&#10;# Conflicts:&#10;#&#9;.idea/.idea.ECommerceInventory/.idea/workspace.xml&#10;#&#9;obj/Debug/net8.0/ECommerceInventory.AssemblyInfo.cs&#10;#&#9;obj/Debug/net8.0/ECommerceInventory.AssemblyInfoInputs.cache&#10;#&#9;obj/rider.project.model.nuget.info">
+      <change afterPath="$PROJECT_DIR$/Models/DB/CategoryRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/ICategoryRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/IProductRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/ProductRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/ElasticServices.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ECommerceInventory/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ECommerceInventory/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/CategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/CategoryController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/ProductController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ProductController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ECommerceInventory.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ECommerceInventory.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Category.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Category.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/DB/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/DB/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Dtos/JwtDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Dtos/JwtDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Dtos/ProductListDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Dtos/ProductListDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Dtos/UserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Dtos/UserDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Product.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/CategoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/CategoryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/ProductService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/ProductService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/ECommerceInventory.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/ECommerceInventory.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/ECommerceInventory.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/ECommerceInventory.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/ECommerceInventory.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/ECommerceInventory.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/ECommerceInventory.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/ECommerceInventory.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/ECommerceInventory.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/ECommerceInventory.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +66,12 @@
     <setting file="file://$PROJECT_DIR$/Controllers/AuthenticationController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Controllers/ProductController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Category.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/sifat/Documents/DotNetDev/ECommerceInventory/Models/DB/ApplicationDbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/sifat/Documents/DotNetDev/ECommerceInventory/Models/DB/ApplicationDbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/DB/CategoryRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/DB/ICategoryRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/DB/IProductRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/DB/ProductRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Dtos/CategoryWithCountDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Dtos/JwtDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Dtos/ProductDto.cs" root0="FORCE_HIGHLIGHTING" />
@@ -48,7 +79,11 @@
     <setting file="file://$PROJECT_DIR$/Models/Product.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/AuthSecvices.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Services/ElasticServices.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/appsettings.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/sifat/Documents/DotNetDev/ECommerceInventory/obj/Debug/net8.0/ECommerceInventory.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/sifat/Documents/DotNetDev/ECommerceInventory/obj/Debug/net8.0/ECommerceInventory.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/sifat/Documents/DotNetDev/ECommerceInventory/obj/Debug/net8.0/ECommerceInventory.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -59,22 +94,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.ECommerceInventory: http.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;add-auth&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.ECommerceInventory: http.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Merging add-auth",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.ECommerceInventory: http">
     <configuration name="ECommerceInventory: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/ECommerceInventory.csproj" />
@@ -121,7 +156,13 @@
       <workItem from="1758276302132" duration="2094000" />
       <workItem from="1758279333782" duration="55000" />
       <workItem from="1758279592793" duration="1790000" />
-      <workItem from="1758285112867" duration="8941000" />
+      <workItem from="1758285112867" duration="16792000" />
+      <workItem from="1758343080780" duration="2661000" />
+      <workItem from="1758349277724" duration="961000" />
+      <workItem from="1758352762685" duration="4185000" />
+      <workItem from="1758360691438" duration="2328000" />
+      <workItem from="1758366553545" duration="676000" />
+      <workItem from="1758367666771" duration="291000" />
     </task>
     <task id="LOCAL-00001" summary="added dbcontext">
       <option name="closed" value="true" />
@@ -147,7 +188,23 @@
       <option name="project" value="LOCAL" />
       <updated>1758279760589</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added auth controller and service">
+      <option name="closed" value="true" />
+      <created>1758297539136</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1758297539136</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added elastic">
+      <option name="closed" value="true" />
+      <created>1758356058265</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1758356058265</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,7 +240,9 @@
     <MESSAGE value="WIP: Storing local changes before merge" />
     <MESSAGE value="add" />
     <MESSAGE value="fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed" />
+    <MESSAGE value="added auth controller and service" />
+    <MESSAGE value="added elastic" />
+    <option name="LAST_COMMIT_MESSAGE" value="added elastic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

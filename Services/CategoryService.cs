@@ -1,59 +1,27 @@
 using ECommerceInventory.Models;
+using ECommerceInventory.Models.DB;
 using ECommerceInventory.Models.Dtos;
-using Microsoft.EntityFrameworkCore;
+
+namespace ECommerceInventory.Services;
 
 public class CategoryService
 {
-    private readonly ApplicationDbContext _context;
+    private readonly ICategoryRepository _categoryRepo;
 
-    public CategoryService(ApplicationDbContext context)
+    public CategoryService(ICategoryRepository categoryRepo)
     {
-        _context = context;
+        _categoryRepo = categoryRepo;
     }
 
-    public IQueryable<CategoryWithCountDto> GetCategoryCounts()
-    {
-        return from category in _context.Categories
-            join product in _context.Products
-                on category.Id equals product.CategoryId
-                into categoryGroup
-            select new CategoryWithCountDto
-            {
-                CategoryId = category.Id,
-                CategoryName = category.Name,
-                ProductCount = categoryGroup.Count()
-            };
-    }
+    public Task AddCategoryAsync(Category category) => _categoryRepo.AddAsync(category);
 
-    public IQueryable<Category> GetCategoryById(int id)
-    {
-        return _context.Categories.Where(c => c.Id == id);
-    }
-    public void AddCategory(Category category)
-    {
-        _context.Categories.Add(category);
-        _context.SaveChanges();
-    }
-    public void UpdateCategory(Category category)
-    {
-        _context.Categories.Update(category);
-        _context.SaveChanges();
-    }
-    public async Task<bool> DeleteCategory(int categoryId)
-    {
-        var category = await _context.Categories
-            .Include(c => c.products)
-            .FirstOrDefaultAsync(c => c.Id == categoryId);
+    public Task<bool> DeleteCategoryAsync(int id) => _categoryRepo.DeleteAsync(id);
 
-        if (category == null) return false;
+    public IQueryable<CategoryWithCountDto> GetCategoryCounts() => _categoryRepo.GetCategoryCounts();
 
-        if (category.products != null && category.products.Any())
-        {
-            throw new InvalidOperationException("Cannot delete category with linked products.");
-        }
+    public IQueryable<Category> GetCategoryById(int id) => _categoryRepo.GetById(id);
+    
+    public Task UpdateCategoryAsync(Category category) =>
+        _categoryRepo.UpdateAsync(category);
 
-        _context.Categories.Remove(category);
-        await _context.SaveChangesAsync();
-        return true;
-    }
 }

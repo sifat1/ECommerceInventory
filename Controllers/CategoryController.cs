@@ -1,8 +1,10 @@
 using ECommerceInventory.Models;
 using ECommerceInventory.Models.Dtos;
+using ECommerceInventory.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+namespace ECommerceInventory.Controllers;
 
 [Route("api/")]
 [ApiController]
@@ -23,9 +25,9 @@ public class CategoryController : ControllerBase
             return ValidationProblem(ModelState);
         try
         {
-            _categoryService.AddCategory(category);
+            _categoryService.AddCategoryAsync(category);
             return CreatedAtAction(nameof(GetCategoryById), new {category.Id
-        }, category);
+            }, category);
         }
         catch (Exception ex)
         {
@@ -47,9 +49,9 @@ public class CategoryController : ControllerBase
     [Route("categories/{id}")]
     public async Task<IActionResult> GetCategoryById(int id)
     {
-            Category category = await _categoryService.GetCategoryById(id).FirstOrDefaultAsync();
-            if (category == null) return NotFound();
-            return Ok(category);
+        Category category = await _categoryService.GetCategoryById(id).FirstOrDefaultAsync();
+        if (category == null) return NotFound();
+        return Ok(category);
     }
 
     [HttpPut]
@@ -58,7 +60,7 @@ public class CategoryController : ControllerBase
     {
         try
         {
-            _categoryService.UpdateCategory(category);
+            _categoryService.UpdateCategoryAsync(category);
             return Ok(new { message = "Category updated successfully" });
         }
         catch (DbUpdateException ex)
@@ -73,7 +75,7 @@ public class CategoryController : ControllerBase
     {
         try
         {
-            var deleted = await _categoryService.DeleteCategory(id);
+            var deleted = await _categoryService.DeleteCategoryAsync(id);
             if (!deleted)
                 return NotFound(new { message = "Category not found" });
 

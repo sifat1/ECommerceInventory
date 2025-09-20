@@ -1,10 +1,21 @@
+using Microsoft.AspNetCore.Mvc;
+
 namespace ECommerceInventory.Models.Dtos;
 
 public class ProductListDto
 {
-    public int categoryId;
-    public  int? minPrice = 10;
-    public int? maxPrice=100;
-    public int? page = 1;
-    public int? limit = 10;
+    [FromQuery(Name = "categoryId")]
+    public int categoryId { get; set; }
+
+    [FromQuery(Name = "minPrice")]
+    public int? minPrice { get; set; } = 10;
+    
+    [FromQuery(Name = "maxPrice")]
+    public int? maxPrice { get; set; } = 100;
+
+    [FromQuery(Name = "page")]
+    public int? page { get; set; } = 1;
+    
+    [FromQuery(Name = "limit")]
+    public int? limit { get; set; } = 10;
 }
