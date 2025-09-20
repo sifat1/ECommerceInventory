@@ -1,7 +1,7 @@
 
 ## E-Commerce Inventory API
 
-RESTful API for managing products, categories, and authentication, built with **ASP.NET Core 7**, **PostgreSQL**, and **Elasticsearch**.
+RESTful API for managing products, categories, and authentication, built with **ASP.NET Core 8**, **PostgreSQL**, and **Elasticsearch**.
 
 ---
 
