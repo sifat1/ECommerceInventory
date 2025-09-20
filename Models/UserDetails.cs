@@ -13,5 +13,5 @@ public class UserDetails : IdentityUser
     public string Address { get; set; }
 
     public string? RefreshToken { get; set; } = "";
-    public DateTime? RefreshTokenExpiryTime { get; set; } = DateTime.Now;
+    public DateTime? RefreshTokenExpiryTime { get; set; } = DateTime.UtcNow.AddDays(7);
 }

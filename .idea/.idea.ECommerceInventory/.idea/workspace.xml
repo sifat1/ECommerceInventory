@@ -9,19 +9,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aee049f0-d8f1-4a2d-ad56-e2158c70d8d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Models/Dtos/RefreshTokenDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ECommerceInventory/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ECommerceInventory/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/CategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/CategoryController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/ProductController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ProductController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/Dtos/JwtDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Dtos/JwtDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Dtos/UserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Dtos/UserDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/UserDetails.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/UserDetails.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/AuthSecvices.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/AuthSecvices.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/ECommerceInventory.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/ECommerceInventory.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/ECommerceInventory.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/ECommerceInventory.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/ECommerceInventory.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/ECommerceInventory.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
@@ -145,7 +138,7 @@
       <workItem from="1758360691438" duration="2328000" />
       <workItem from="1758366553545" duration="676000" />
       <workItem from="1758367666771" duration="291000" />
-      <workItem from="1758373998893" duration="1312000" />
+      <workItem from="1758373998893" duration="2188000" />
     </task>
     <task id="LOCAL-00001" summary="added dbcontext">
       <option name="closed" value="true" />
@@ -195,7 +188,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758371333243</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added refresh token">
+      <option name="closed" value="true" />
+      <created>1758375515251</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1758375515251</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,7 +234,8 @@
     <MESSAGE value="fixed" />
     <MESSAGE value="added auth controller and service" />
     <MESSAGE value="added elastic" />
-    <option name="LAST_COMMIT_MESSAGE" value="added elastic" />
+    <MESSAGE value="added refresh token" />
+    <option name="LAST_COMMIT_MESSAGE" value="added refresh token" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

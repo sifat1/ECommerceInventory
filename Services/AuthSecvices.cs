@@ -63,13 +63,13 @@ public class AuthServices
             var token = new JwtSecurityToken(
                 issuer: _configuration["Jwt:Issuer"],
                 audience: _configuration["Jwt:Issuer"],
-                expires: DateTime.Now.AddHours(3),
+                expires: DateTime.UtcNow.AddHours(3),
                 claims: authClaims,
                 signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
             );
             var refreshToken = GenerateRefreshToken();
             user.RefreshToken = refreshToken;
-            user.RefreshTokenExpiryTime = DateTime.Now.AddDays(7); 
+            user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7); 
             await _userManager.UpdateAsync(user);
 
             return new JwtDto
@@ -96,7 +96,7 @@ public class AuthServices
     {
         var user = _userManager.Users.FirstOrDefault(u => u.RefreshToken == tokenDto.RefreshToken);
 
-        if (user == null || user.RefreshTokenExpiryTime <= DateTime.Now)
+        if (user == null || user.RefreshTokenExpiryTime <= DateTime.UtcNow)
             throw new InvalidOperationException("Invalid or expired refresh token.");
         
         var userRoles = await _userManager.GetRolesAsync(user);
@@ -116,14 +116,14 @@ public class AuthServices
         var newToken = new JwtSecurityToken(
             issuer: _configuration["Jwt:Issuer"],
             audience: _configuration["Jwt:Issuer"],
-            expires: DateTime.Now.AddHours(3), 
+            expires: DateTime.UtcNow.AddHours(3), 
             claims: authClaims,
             signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
         );
         var newRefreshToken = GenerateRefreshToken();
         
         user.RefreshToken = newRefreshToken;
-        user.RefreshTokenExpiryTime = DateTime.Now.AddDays(7);
+        user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
         await _userManager.UpdateAsync(user);
 
         return new JwtDto
