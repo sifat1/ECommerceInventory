@@ -13,19 +13,34 @@ namespace ECommerceInventory.Controllers;
 public class ProductController : ControllerBase
 {
     private readonly ProductService _productService;
+    private readonly FileUploadService _uploadService;
     private readonly ElasticServices _elasticServices;
-    public ProductController(ProductService productService, ElasticServices elasticServices)
+    public ProductController(ProductService productService, ElasticServices elasticServices, FileUploadService  uploadService)
     {
         _productService = productService;
         _elasticServices = elasticServices;
+        _uploadService = uploadService;
     }
     
     [HttpPost]
     [Route("products")]
-    public async Task<IActionResult> AddProduct(Product product)
+    public async Task<IActionResult> AddProduct(ProductDto productDto)
     {
         try
         {
+            if (productDto.Image != null)
+            {
+                productDto.ImageUrl = await _uploadService.UploadImageAsync(productDto.Image);
+            }
+            var product = new Product
+            {
+                Name = productDto.Name,
+                Description = productDto.Description,
+                Price = productDto.Price,
+                Stock = productDto.Stock,
+                CategoryId = productDto.CategoryId,
+                ImageUrl = productDto.ImageUrl
+            };
             await _productService.AddProductAsync(product);
             await _elasticServices.CreateProductAsync(product);
             return CreatedAtAction(nameof(GetProductsById), new { product.Id }, product);
