@@ -1,4 +1,5 @@
 using ECommerceInventory.Models;
+using ECommerceInventory.Models.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,10 +19,13 @@ public class CategoryController : ControllerBase
     [Route("categories")]
     public IActionResult AddCategory(Category category)
     {
+        if (!ModelState.IsValid)
+            return ValidationProblem(ModelState);
         try
         {
             _categoryService.AddCategory(category);
-            return Ok(new { message = "Category added successfully" });
+            return CreatedAtAction(nameof(GetCategoryById), new {category.Id
+        }, category);
         }
         catch (Exception ex)
         {
@@ -32,18 +36,20 @@ public class CategoryController : ControllerBase
 
     [HttpGet]
     [Route("categories")]
-    public async Task<List<Category>> GetAllCategories()
+    public async Task<ActionResult<List<CategoryWithCountDto>>> GetAllCategories()
     {
-        List<Category> categories = await _categoryService.GetAllCategories().ToListAsync();
-        return categories ?? new List<Category>();
+        List<CategoryWithCountDto> categories = await _categoryService.GetCategoryCounts().ToListAsync();
+        if (categories == null) return NotFound();
+        return Ok(categories);
     }
 
     [HttpGet]
     [Route("categories/{id}")]
-    public async Task<Category> GetCategoryById(int id)
+    public async Task<IActionResult> GetCategoryById(int id)
     {
-        Category category = await _categoryService.GetCategoryById(id).FirstOrDefaultAsync();
-        return category ?? null;
+            Category category = await _categoryService.GetCategoryById(id).FirstOrDefaultAsync();
+            if (category == null) return NotFound();
+            return Ok(category);
     }
 
     [HttpPut]
@@ -55,24 +61,31 @@ public class CategoryController : ControllerBase
             _categoryService.UpdateCategory(category);
             return Ok(new { message = "Category updated successfully" });
         }
-        catch (Exception ex)
+        catch (DbUpdateException ex)
         {
-            return BadRequest(new { message = ex.Message });
+            return Conflict(new { message = ex.InnerException?.Message ?? ex.Message });
         }
     }
 
     [HttpDelete]
     [Route("categories/{id}")]
-    public IActionResult DeleteCategory(int id)
+    public async Task<IActionResult> DeleteCategory(int id)
     {
         try
         {
-            _categoryService.DeleteCategory(id);
+            var deleted = await _categoryService.DeleteCategory(id);
+            if (!deleted)
+                return NotFound(new { message = "Category not found" });
+
             return Ok(new { message = "Category deleted successfully" });
         }
-        catch (Exception ex)
+        catch (InvalidOperationException ex)
         {
-            return BadRequest(new { message = ex.Message });
+            return Conflict(new { message = ex.Message });
+        }
+        catch (DbUpdateException ex)
+        {
+            return BadRequest(new { message = ex.InnerException?.Message ?? ex.Message });
         }
     }
 }
