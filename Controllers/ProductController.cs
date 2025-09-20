@@ -1,6 +1,7 @@
 using ECommerceInventory.Models;
 using ECommerceInventory.Models.Dtos;
 using ECommerceInventory.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +9,7 @@ namespace ECommerceInventory.Controllers;
 
 [Route("api/")]
 [ApiController]
+[Authorize]
 public class ProductController : ControllerBase
 {
     private readonly ProductService _productService;
