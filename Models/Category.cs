@@ -10,6 +10,5 @@ public class Category
     public string Name { get; set; }
     [StringLength(500)]
     public string Description { get; set; }
-    
     public List<Product> products { get; set; }
 }
