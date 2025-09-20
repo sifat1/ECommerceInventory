@@ -11,9 +11,12 @@ using Microsoft.IdentityModel.Tokens;
 var builder = WebApplication.CreateBuilder(args);
 
 var esSettings = new ElasticsearchClientSettings(new Uri("http://localhost:9200"))
-    .DefaultIndex("products");
+    .DefaultIndex("products")
+    .RequestTimeout(TimeSpan.FromMinutes(2)) 
+    .ThrowExceptions();
 builder.Services.AddSingleton(new ElasticsearchClient(esSettings));
 
+builder.Services.AddScoped<ElasticServices>();
 builder.Services.AddControllers();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ProductService>();

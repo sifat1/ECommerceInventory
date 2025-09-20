@@ -11,18 +11,21 @@ namespace ECommerceInventory.Controllers;
 public class ProductController : ControllerBase
 {
     private readonly ProductService _productService;
-    public ProductController(ProductService productService)
+    private readonly ElasticServices _elasticServices;
+    public ProductController(ProductService productService, ElasticServices elasticServices)
     {
         _productService = productService;
+        _elasticServices = elasticServices;
     }
     
     [HttpPost]
     [Route("products")]
-    public IActionResult AddProduct(Product product)
+    public async Task<IActionResult> AddProduct(Product product)
     {
         try
         {
-            _productService.AddProductAsync(product);
+            await _productService.AddProductAsync(product);
+            await _elasticServices.CreateProductAsync(product);
             return CreatedAtAction(nameof(GetProductsById), new { product.Id }, product);
         }
         catch (Exception ex)
@@ -66,16 +69,33 @@ public class ProductController : ControllerBase
 
     [HttpDelete]
     [Route("products/{id}")]
-    public IActionResult DeleteProduct(int id)
+    public async Task<IActionResult> DeleteProduct(int id)
     {
         try
         {
-            _productService.DeleteProductAsync(id);
+            await _productService.DeleteProductAsync(id);
+            await _elasticServices.DeleteProductAsync(id);
             return Ok(new { message = "Product deleted successfully" });
         }
         catch (Exception ex)
         {
             return BadRequest(new { message = ex.Message });
+        }
+    }
+    
+    [HttpGet]
+    [Route("products/{query:alpha}")]
+    public async Task<IActionResult> SearchProduct(string query)
+    {
+        try
+        {
+            var result = await _elasticServices.SearchProductsAsync(query);
+            if(result.Count==0) return NotFound();
+            return Ok(result);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(new { message = e.Message });
         }
     }
 }

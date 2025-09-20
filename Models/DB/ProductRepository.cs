@@ -16,9 +16,9 @@ public class ProductRepository : IProductRepository
     {
         return _context.Products
             .Where(p =>
-                (!filter.minPrice.HasValue || p.Price >= filter.minPrice.Value) &&
-                (!filter.maxPrice.HasValue || p.Price <= filter.maxPrice.Value) &&
-                (p.CategoryId == filter.categoryId))
+                (filter.minPrice == null || filter.minPrice == 0 || p.Price >= filter.minPrice.Value) &&
+                (filter.maxPrice == null || filter.maxPrice == 0 || p.Price <= filter.maxPrice.Value) &&
+                (filter.categoryId == 0 || p.CategoryId == filter.categoryId))
             .Skip(((filter.page ?? 1) - 1) * (filter.limit ?? 10))
             .Take(filter.limit ?? 10);
     }
