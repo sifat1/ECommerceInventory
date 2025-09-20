@@ -4,12 +4,14 @@ using ECommerceInventory.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace ECommerceInventory.Controllers;
 
 [Route("api/")]
 [ApiController]
 [Authorize]
+[Tags("Categories")]
 public class CategoryController : ControllerBase
 {
     private readonly CategoryService _categoryService;
@@ -21,6 +23,9 @@ public class CategoryController : ControllerBase
 
     [HttpPost]
     [Route("categories")]
+    [SwaggerOperation(Summary = "Create Category", Description = "Adds a new Category")]
+    [ProducesResponseType(typeof(Category), StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public IActionResult AddCategory(Category category)
     {
         if (!ModelState.IsValid)
@@ -40,6 +45,8 @@ public class CategoryController : ControllerBase
 
     [HttpGet]
     [Route("categories")]
+    [ProducesResponseType(typeof(List<CategoryWithCountDto>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<List<CategoryWithCountDto>>> GetAllCategories()
     {
         List<CategoryWithCountDto> categories = await _categoryService.GetCategoryCounts().ToListAsync();
@@ -49,6 +56,8 @@ public class CategoryController : ControllerBase
 
     [HttpGet]
     [Route("categories/{id}")]
+    [ProducesResponseType(typeof(Category), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetCategoryById(int id)
     {
         Category category = await _categoryService.GetCategoryById(id).FirstOrDefaultAsync();
@@ -58,6 +67,8 @@ public class CategoryController : ControllerBase
 
     [HttpPut]
     [Route("categories")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status409Conflict)]
     public IActionResult UpdateCategory(Category category)
     {
         try
@@ -73,6 +84,10 @@ public class CategoryController : ControllerBase
 
     [HttpDelete]
     [Route("categories/{id}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status409Conflict)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> DeleteCategory(int id)
     {
         try
