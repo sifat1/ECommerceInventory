@@ -9,25 +9,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aee049f0-d8f1-4a2d-ad56-e2158c70d8d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Models/Dtos/CategoryWithCountDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Dtos/JwtDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Dtos/ProductDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Dtos/UserDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/AuthSecvices.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/CategoryRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/ICategoryRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/IProductRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/DB/ProductRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/ElasticServices.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ECommerceInventory/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ECommerceInventory/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/CategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/CategoryController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/ProductController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ProductController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ECommerceInventory.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ECommerceInventory.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/Category.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Category.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/DB/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/DB/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Product.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/CategoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/CategoryService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/ProductService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/ProductService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/ECommerceInventory.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/ECommerceInventory.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/ECommerceInventory.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/ECommerceInventory.AssemblyInfoInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/ECommerceInventory.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/ECommerceInventory.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net8.0/ECommerceInventory.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net8.0/ECommerceInventory.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/ECommerceInventory.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/ECommerceInventory.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/ECommerceInventory.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/ECommerceInventory.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.packagespec.json" afterDir="false" />
@@ -61,6 +63,10 @@
     <setting file="file://$PROJECT_DIR$/Controllers/AuthenticationController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Controllers/ProductController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Category.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/DB/CategoryRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/DB/ICategoryRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/DB/IProductRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/DB/ProductRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Dtos/CategoryWithCountDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Dtos/JwtDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/Dtos/ProductDto.cs" root0="FORCE_HIGHLIGHTING" />
@@ -68,6 +74,7 @@
     <setting file="file://$PROJECT_DIR$/Models/Product.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/AuthSecvices.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Services/ElasticServices.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/appsettings.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -86,7 +93,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "add-auth",
+    "git-widget-placeholder": "add-elastic",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -141,7 +148,10 @@
       <workItem from="1758276302132" duration="2094000" />
       <workItem from="1758279333782" duration="55000" />
       <workItem from="1758279592793" duration="1790000" />
-      <workItem from="1758285112867" duration="8941000" />
+      <workItem from="1758285112867" duration="16792000" />
+      <workItem from="1758343080780" duration="2661000" />
+      <workItem from="1758349277724" duration="961000" />
+      <workItem from="1758352762685" duration="3239000" />
     </task>
     <task id="LOCAL-00001" summary="added dbcontext">
       <option name="closed" value="true" />
@@ -167,7 +177,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758279760589</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added auth controller and service">
+      <option name="closed" value="true" />
+      <created>1758297539136</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1758297539136</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,7 +221,8 @@
     <MESSAGE value="WIP: Storing local changes before merge" />
     <MESSAGE value="add" />
     <MESSAGE value="fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed" />
+    <MESSAGE value="added auth controller and service" />
+    <option name="LAST_COMMIT_MESSAGE" value="added auth controller and service" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

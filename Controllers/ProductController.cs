@@ -1,5 +1,6 @@
 using ECommerceInventory.Models;
 using ECommerceInventory.Models.Dtos;
+using ECommerceInventory.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,7 +22,7 @@ public class ProductController : ControllerBase
     {
         try
         {
-            _productService.AddProduct(product);
+            _productService.AddProductAsync(product);
             return CreatedAtAction(nameof(GetProductsById), new { product.Id }, product);
         }
         catch (Exception ex)
@@ -54,7 +55,7 @@ public class ProductController : ControllerBase
     {
         try
         {
-            _productService.UpdateProduct(id,product);
+            _productService.UpdateProductAsync(id,product);
             return Ok(new { message = "Product updated successfully" });
         }
         catch (Exception ex)
@@ -69,7 +70,7 @@ public class ProductController : ControllerBase
     {
         try
         {
-            _productService.DeleteProduct(id);
+            _productService.DeleteProductAsync(id);
             return Ok(new { message = "Product deleted successfully" });
         }
         catch (Exception ex)
