@@ -71,11 +71,15 @@ public class ProductController : ControllerBase
 
     [HttpPut]
     [Route("products/{id}")]
-    public IActionResult UpdateProduct(int id, ProductDto product)
+    public async Task<IActionResult> UpdateProduct(int id, [FromQuery] ProductDto product)
     {
         try
         {
-            _productService.UpdateProductAsync(id,product);
+            if (product.Image != null)
+            {
+                product.ImageUrl = await _uploadService.UploadImageAsync(product.Image);
+            }
+            await _productService.UpdateProductAsync(id,product);
             return Ok(new { message = "Product updated successfully" });
         }
         catch (Exception ex)
