@@ -12,7 +12,7 @@ using Swashbuckle.AspNetCore.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var esSettings = new ElasticsearchClientSettings(new Uri("http://localhost:9200"))
+var esSettings = new ElasticsearchClientSettings(new Uri(builder.Configuration["Elasticsearch:Url"]))
     .DefaultIndex("products")
     .RequestTimeout(TimeSpan.FromMinutes(2)) 
     .ThrowExceptions();
